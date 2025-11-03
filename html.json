@@ -5,17 +5,16 @@
       "<!-- Creator: Zamin Mammadov | Group: EKfu-24_1 -->",
       "<!DOCTYPE html>",
       "<html lang=\"en\">",
-      "  <head>",
-      "    <meta charset=\"UTF-8\" />",
-      "    <title>${1:My First Page}</title>",
-      "  </head>",
-      "  <body>",
-      "    <h1>${2:Hello!}</h1>",
-      "    <p>Testing <b>bold</b>, <i>italic</i>, and <u>underline</u> tags.</p>",
-      "  </body>",
+      "<head>",
+      "    <meta charset=\"UTF-8\">",
+      "    <title>Welcome Page</title>",
+      "</head>",
+      "<body>",
+      "    <h1>Hello, welcome to my first HTML page!</h1>",
+      "    <p>This is a <b>bold</b>, <i>italic</i>, and <u>underlined</u> text example.</p>",
+      "</body>",
       "</html>"
     ],
     "description": "Basic HTML structure with comment line (name, surname, group)"
   }
 }
-
