@@ -29,3 +29,43 @@ p {
     letter-spacing: 0.3px;
     color: #333;
 }
+
+
+
+
+/* GLOBAL LINKS */
+a {
+    color: #0055ff;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    color: #0033aa;
+}
+
+a:active {
+    color: #001f66;
+}
+
+/* BUTTONS */
+button,
+.btn {
+    background-color: #0055ff;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #003fcc;
+}
+
+button:active,
+.btn:active {
+    background-color: #002f99;
+}
