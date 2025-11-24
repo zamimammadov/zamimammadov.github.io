@@ -254,7 +254,8 @@ button:active,
 
 /* Hover efekti */
 .pricing .pricing-item:hover {
-    background: #eef3ff;
+    background: #dce7ff !important;
+    border-left: 4px solid #0055ff;
 }
 
 /* Metin solda, fiyat sağda hizalı */
@@ -279,4 +280,15 @@ button:active,
     font-weight: 600;
     background: #f0f3ff;
     border-radius: 8px 8px 0 0;
+}
+
+
+/* Resume başlığı ile ilk kart arasındaki boşluk */
+.resume .resume-title {
+    margin-bottom: 24px;
+    /* ister 32px, 40px yapabilirsin */
+}
+
+.resume-item {
+    margin-top: 16px;      /* mevcut margin-bottom:20px yanına ekle */
 }
