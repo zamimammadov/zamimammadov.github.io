@@ -440,3 +440,24 @@ a.animated-link:hover::after {
 }
 
 
+/* ===== REQUIRED: ACCESSIBILITY (prefers-reduced-motion) ===== */
+@media (prefers-reduced-motion: reduce) {
+    .index-page {
+        animation: none !important;
+    }
+
+    #preloader::before {
+        animation: none !important;
+    }
+
+    button:hover::after,
+    .btn:hover::after {
+        animation: none !important;
+    }
+
+    * {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
