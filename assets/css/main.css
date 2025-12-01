@@ -495,43 +495,7 @@ h6 {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
-/* ===== PRELOADER (TEK SÜRÜM) ===== */
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  display: flex !important;
-  /* başka css display:none yapıyorsa ezsin */
-  align-items: center;
-  justify-content: center;
-  background: var(--background-color, rgba(255, 255, 255, 0.92));
-  backdrop-filter: blur(6px);
-  opacity: 1;
-  visibility: visible;
-}
 
-#preloader::before {
-  content: "";
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 6px solid rgba(0, 85, 255, 0.22);
-  border-top-color: var(--accent-color, #0055ff);
-  animation: preloader-spin 0.9s linear infinite;
-}
-
-@keyframes preloader-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* hareket azaltma açıksa animasyon durur (normal) */
-@media (prefers-reduced-motion: reduce) {
-  #preloader::before {
-    animation: none !important;
-  }
-}
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
