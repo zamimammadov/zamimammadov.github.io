@@ -486,3 +486,52 @@ a.animated-link:hover::after {
     animation: gradientShift 10s ease infinite;
 }
 
+/* ===== OPTIONAL: Decorative shapes ===== */
+@keyframes floaty {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(10px, -16px);
+    }
+}
+
+.hero .container {
+    isolation: isolate;
+}
+
+.hero .container::before,
+.hero .container::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    background: rgba(0, 85, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    pointer-events: none;
+    z-index: 1;
+    animation: floaty 9s ease-in-out infinite;
+}
+
+.hero .container>* {
+    position: relative;
+    z-index: 2;
+}
+
+.hero .container::before {
+    width: 160px;
+    height: 160px;
+    left: -60px;
+    top: -40px;
+    animation-duration: 11s;
+}
+
+.hero .container::after {
+    width: 90px;
+    height: 90px;
+    right: -40px;
+    bottom: -30px;
+}
+
