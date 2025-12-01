@@ -462,8 +462,8 @@ a.animated-link:hover::after {
 }
 
 
-/* ===== OPTIONAL: Animated gradient overlay ===== */
-@keyframes gradientShift {
+/* ===== OPTIONAL TASK: Animated Gradient Background ===== */
+@keyframes animatedGradient {
     0% {
         background-position: 0% 50%;
     }
@@ -477,65 +477,58 @@ a.animated-link:hover::after {
     }
 }
 
-.hero::before {
+.animated-gradient {
     background: linear-gradient(120deg,
-            rgba(0, 85, 255, 0.55),
-            rgba(0, 0, 0, 0.55),
-            rgba(0, 85, 255, 0.35));
+            #ff0000,
+            #111,
+            #d4d8da);
     background-size: 200% 200%;
-    animation: gradientShift 10s ease infinite;
+    animation: animatedGradient 8s ease-in-out infinite;
 }
 
-/* ===== OPTIONAL: Decorative shapes ===== */
-@keyframes floaty {
+
+
+/* ===== OPTIONAL TASK: Decorative Floating Circles ===== */
+@keyframes floatUpDown {
 
     0%,
     100% {
-        transform: translate(0, 0);
+        transform: translateY(0) translateX(0);
+        opacity: 0.7;
     }
 
     50% {
-        transform: translate(10px, -16px);
+        transform: translateY(-20px) translateX(10px);
+        opacity: 1;
     }
 }
 
-.hero .container {
-    isolation: isolate;
+.floating-shapes {
+    position: relative;
+    overflow: hidden;
 }
 
-.hero .container::before,
-.hero .container::after {
+.floating-shapes::before,
+.floating-shapes::after {
     content: "";
     position: absolute;
     border-radius: 999px;
-    background: rgba(0, 85, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(0, 85, 255, 0.20);
+    animation: floatUpDown 6s ease-in-out infinite;
     pointer-events: none;
-    z-index: 1;
-    animation: floaty 9s ease-in-out infinite;
 }
 
-.hero .container>* {
-    position: relative;
-    z-index: 2;
+.floating-shapes::before {
+    width: 120px;
+    height: 120px;
+    top: -20px;
+    left: -20px;
 }
 
-.hero .container::before {
-    width: 160px;
-    height: 160px;
-    left: -60px;
-    top: -40px;
-    animation-duration: 11s;
-}
-
-.hero .container::after {
-    width: 90px;
-    height: 90px;
-    right: -40px;
-    bottom: -30px;
-}
-
-.hero .container {
-    position: relative;
-    isolation: isolate;
+.floating-shapes::after {
+    width: 70px;
+    height: 70px;
+    bottom: -20px;
+    right: -20px;
+    animation-delay: 1.5s;
 }
