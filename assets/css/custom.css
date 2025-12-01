@@ -461,3 +461,28 @@ a.animated-link:hover::after {
     }
 }
 
+
+/* ===== OPTIONAL: Animated gradient overlay ===== */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero::before {
+    background: linear-gradient(120deg,
+            rgba(0, 85, 255, 0.55),
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 85, 255, 0.35));
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
