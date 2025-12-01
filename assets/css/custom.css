@@ -292,3 +292,59 @@ button:active,
 .resume-item {
     margin-top: 16px;      /* mevcut margin-bottom:20px yanına ekle */
 }
+
+/* ===== REQUIRED: CSS ANIMATIONS (1) ===== */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.index-page {
+    animation: pageFadeIn 700ms ease-out both;
+}
+
+/* ===== REQUIRED: CSS ANIMATIONS (2) ===== */
+@keyframes btnSheen {
+    0% {
+        transform: translateX(-140%) skewX(-20deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateX(220%) skewX(-20deg);
+        opacity: 0;
+    }
+}
+
+button,
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+button::after,
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: -60%;
+    width: 40%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: skewX(-20deg);
+    opacity: 0;
+    pointer-events: none;
+}
+
+button:hover::after,
+.btn:hover::after {
+    animation: btnSheen 900ms ease-out;
+}
