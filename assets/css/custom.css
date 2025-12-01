@@ -408,3 +408,35 @@ a.animated-link::after {
 a.animated-link:hover::after {
     animation: underlineSlide 0.3s forwards;
 }
+
+
+
+/* ===== REQUIRED: CSS-ONLY LOADER ===== */
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#preloader::before {
+    content: "";
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 6px solid rgba(0, 85, 255, 0.22);
+    border-top-color: #0055ff;
+    animation: spin 0.9s linear infinite;
+}
+
+
