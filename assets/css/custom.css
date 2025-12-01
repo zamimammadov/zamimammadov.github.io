@@ -535,3 +535,7 @@ a.animated-link:hover::after {
     bottom: -30px;
 }
 
+.hero .container {
+    position: relative;
+    isolation: isolate;
+}
