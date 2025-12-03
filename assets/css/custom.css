@@ -671,137 +671,164 @@ a.animated-link:hover::after {
 
 
 
+/* --- MEMORY GAME STYLES --- */
 
-
-/* ===== Memory Game ===== */
 .memory-game-wrap {
     max-width: 900px;
     margin: 0 auto;
+    text-align: center;
+}
+
+/* Controls and Stats Layout */
+.mg-controls,
+.mg-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
 }
 
 .mg-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: center;
-    justify-content: space-between;
+    gap: 15px;
 }
 
 .mg-left {
     display: flex;
+    align-items: center;
     gap: 10px;
-    align-items: center;
 }
 
-.mg-left .form-select {
-    min-width: 160px;
+.mg-right button {
+    margin-left: 8px;
 }
 
-.mg-right {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.mg-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    align-items: center;
-}
-
+/* Game Board Grid */
 .mg-board {
-    margin-top: 16px;
     display: grid;
-    gap: 12px;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f8f9fa;
+    /* Light background for the board */
+    perspective: 1000px;
+    /* For 3D flip effect */
+    margin-top: 20px;
 }
 
-.mg-board.is-disabled {
-    pointer-events: none;
-    opacity: .75;
+/* Difficulty Grids */
+.mg-board.easy {
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns for 4x3 grid */
 }
 
+.mg-board.hard {
+    grid-template-columns: repeat(6, 1fr);
+    /* 6 columns for 6x4 grid */
+}
+
+/* Win Message */
+.mg-win {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #198754;
+    /* Green for success */
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 8px;
+    background: #e6ffe6;
+    display: none;
+}
+
+/* Card Styling */
 .mg-card {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border: 0;
-    padding: 0;
-    background: transparent;
-    cursor: pointer;
-    perspective: 900px;
-}
-
-.mg-inner {
     position: relative;
     width: 100%;
-    height: 100%;
+    /* Aspect ratio for cards (e.g., 4:5 or 1:1) */
+    padding-bottom: 120%;
+    /* Makes the card taller than wide for a better fit in 6x4 grid */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
     transform-style: preserve-3d;
-    transition: transform .25s ease;
+    transition: transform 0.6s;
 }
 
-.mg-card.is-flipped .mg-inner {
-    transform: rotateY(180deg);
-}
-
+/* Inner content for front and back */
 .mg-face {
     position: absolute;
-    inset: 0;
-    border-radius: 16px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     backface-visibility: hidden;
-    border: 1px solid rgba(0, 0, 0, .08);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, .12);
+    border-radius: 8px;
+    font-size: 2rem;
+    color: #fff;
+    overflow: hidden;
 }
 
-.mg-front {
-    background: #f6f7fb;
-}
-
-.mg-front::after {
-    content: "?";
-    font-size: clamp(26px, 3vw, 44px);
-    font-weight: 800;
-    opacity: .75;
-}
-
+/* Back (Hidden) Face */
 .mg-back {
+    background-color: #0055ff;
+    /* Blue for hidden side */
     transform: rotateY(180deg);
-    background: #ffffff;
 }
 
-.mg-back i {
-    font-size: clamp(28px, 3.2vw, 48px);
+/* Front (Visible) Face */
+.mg-front {
+    background-color: #fff;
+    /* White for revealed content */
+    color: #333;
+    font-size: 3rem;
+    transform: rotateY(0deg);
 }
 
-.mg-card:focus-visible .mg-face {
-    outline: 3px solid rgba(13, 110, 253, .45);
-    outline-offset: 2px;
+/* Card Image Sizing */
+.mg-front img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
 }
 
-.mg-card.matched {
+/* Card Flip State */
+.mg-card.is-flipped {
+    transform: rotateY(180deg);
     cursor: default;
 }
 
-.mg-card.matched .mg-face {
-    box-shadow: 0 10px 26px rgba(25, 135, 84, .18);
-    border-color: rgba(25, 135, 84, .25);
+/* Matched Card State (remains flipped and less interactive) */
+.mg-card.is-matched {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    opacity: 0.9;
 }
 
-.mg-win {
-    margin-top: 12px;
-    padding: 10px 12px;
-    border-radius: 14px;
-    background: rgba(25, 135, 84, .10);
-    border: 1px solid rgba(25, 135, 84, .25);
-    display: none;
+/* Disable board interactions */
+.mg-board.is-disabled .mg-card {
+    pointer-events: none;
 }
 
-.mg-win.show {
-    display: block;
+/* Difficulty Selector consistency */
+#mgDifficulty {
+    width: auto;
 }
 
+/* Best Result Styling */
 .mg-best {
-    opacity: .9;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+/* Mobile adjustments (make cards slightly smaller/tighter) */
+@media (max-width: 576px) {
+    .mg-board.hard {
+        gap: 8px;
+    }
+
+    .mg-card {
+        padding-bottom: 100%;
+        font-size: 2rem;
+    }
 }
