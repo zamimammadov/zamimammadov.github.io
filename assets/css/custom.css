@@ -538,3 +538,119 @@ a.animated-link:hover::after {
     right: -20px;
     animation-delay: 1.5s;
 }
+
+
+
+
+
+
+
+#customForm .form-control {
+    margin-bottom: 10px;
+}
+
+#formOutput p {
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+/* ---------------------------------------
+   CONTACT FORM – VISUAL CONSISTENCY FIXES
+---------------------------------------- */
+
+/* Input & textarea spacing */
+#contact .php-email-form .form-control {
+    padding: 12px 15px;
+    border-radius: 6px;
+    box-shadow: none;
+    border: 1px solid #ced4da;
+    font-size: 15px;
+}
+
+/* Input margin between rows */
+#contact .php-email-form .form-control {
+    margin-bottom: 15px;
+}
+
+/* Rating input label styling */
+#contact label.form-label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Rating number input size match */
+#contact input[type=number] {
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    width: 100%;
+}
+
+/* Submit button alignment */
+#contact button[type=submit] {
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Output area styling */
+#formOutput {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-top: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.avg-red {
+    color: #dc3545 !important;
+}
+
+.avg-orange {
+    color: #fd7e14 !important;
+}
+
+.avg-green {
+    color: #198754 !important;
+}
+
+
+/* Top-middle slide-in/out toast */
+#submitToast {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translate(-50%, -28px);
+    /* starts above */
+    opacity: 0;
+    z-index: 99999;
+
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: #198754;
+    color: #fff;
+    font-weight: 700;
+
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .25);
+    transition: opacity .28s ease, transform .28s ease;
+    pointer-events: none;
+}
+
+#submitToast.show {
+    transform: translate(-50%, 0);
+    /* slides down into view */
+    opacity: 1;
+}
+
+#submitToast.hide {
+    transform: translate(-50%, -28px);
+    /* slides back up */
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #submitToast {
+        transition: none;
+    }
+}
