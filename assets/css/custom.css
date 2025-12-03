@@ -832,3 +832,48 @@ a.animated-link:hover::after {
         font-size: 2rem;
     }
 }
+
+
+/* Update your custom.css or main.css */
+
+.mg-front {
+    background-color: #fff;
+    color: #333;
+    /* Increase font size significantly if 3rem isn't enough */
+    font-size: 4rem;
+    /* Try increasing this to 4rem or 5rem */
+    /* Ensure no padding or alignment issues hide the icon */
+    transform: rotateY(0deg);
+}
+
+
+
+/* Custom CSS or main.css */
+
+/* 1. Ensure the card face itself is styled correctly */
+.mg-face.mg-front {
+    /* Use a dark color for the icon/text content */
+    color: #333 !important;
+    /* Make the font large enough to be clearly visible */
+    font-size: 5rem !important;
+    /* Ensure white background */
+    background-color: #fff !important;
+
+    /* Center the content */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 2. Explicitly target the Bootstrap Icon element */
+.mg-front i.bi {
+    /* Inherit the dark color */
+    color: inherit !important;
+}
+
+/* 3. Also ensure the back face icon is visible (as it seems faint in the screenshots) */
+.mg-face.mg-back {
+    color: #fff !important;
+    /* White icon on blue background */
+    font-size: 4rem !important;
+}
