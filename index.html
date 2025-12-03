@@ -949,6 +949,42 @@
 </body>
 
 
+<!-- Memory Game Section -->
+<section id="memory-game" class="memory-game section">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Memory Game</h2>
+      <p>Flip cards and find all matching pairs.</p>
+    </div>
+
+    <div class="memory-game-wrap">
+      <div class="mg-controls">
+        <div class="mg-left">
+          <label for="mgDifficulty" class="form-label mb-0">Difficulty</label>
+          <select id="mgDifficulty" class="form-select">
+            <option value="easy" selected>Easy (4×3)</option>
+            <option value="hard">Hard (6×4)</option>
+          </select>
+        </div>
+
+        <div class="mg-right">
+          <button id="mgStartBtn" type="button" class="btn btn-primary">Start</button>
+          <button id="mgRestartBtn" type="button" class="btn btn-outline-primary">Restart</button>
+        </div>
+      </div>
+
+      <div class="mg-stats mt-3">
+        <div><strong>Moves:</strong> <span id="mgMoves">0</span></div>
+        <div><strong>Matches:</strong> <span id="mgMatches">0</span></div>
+        <div><strong>Time:</strong> <span id="mgTime">00:00</span></div>
+        <div class="mg-best" id="mgBest">Best Easy: — | Best Hard: —</div>
+      </div>
+
+      <div id="mgWin" class="mg-win">You won!</div>
+      <div id="mgBoard" class="mg-board is-disabled" aria-label="Memory game board"></div>
+    </div>
+  </div>
+</section>
 
 
 
