@@ -670,210 +670,61 @@ a.animated-link:hover::after {
 
 
 
+/* ============================
+   MEMORY GAME CARD STYLES
+============================ */
 
-/* --- MEMORY GAME STYLES --- */
-
-.memory-game-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* Controls and Stats Layout */
-.mg-controls,
-.mg-stats {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.mg-controls {
-    gap: 15px;
-}
-
-.mg-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.mg-right button {
-    margin-left: 8px;
-}
-
-/* Game Board Grid */
 .mg-board {
     display: grid;
-    gap: 10px;
-    padding: 20px;
-    border-radius: 12px;
-    background: #f8f9fa;
-    /* Light background for the board */
-    perspective: 1000px;
-    /* For 3D flip effect */
+    gap: 14px;
+    justify-content: center;
     margin-top: 20px;
 }
 
-/* Difficulty Grids */
-.mg-board.easy {
-    grid-template-columns: repeat(4, 1fr);
-    /* 4 columns for 4x3 grid */
+.mg-board.is-disabled {
+    pointer-events: none;
+    opacity: 0.5;
 }
 
-.mg-board.hard {
-    grid-template-columns: repeat(6, 1fr);
-    /* 6 columns for 6x4 grid */
-}
-
-/* Win Message */
-.mg-win {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #198754;
-    /* Green for success */
-    padding: 20px;
-    margin-top: 15px;
-    border-radius: 8px;
-    background: #e6ffe6;
-    display: none;
-}
-
-/* Card Styling */
 .mg-card {
-    position: relative;
-    width: 100%;
-    /* Aspect ratio for cards (e.g., 4:5 or 1:1) */
-    padding-bottom: 120%;
-    /* Makes the card taller than wide for a better fit in 6x4 grid */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100px;
+    height: 120px;
+    perspective: 800px;
     cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
 }
 
-/* Inner content for front and back */
-.mg-face {
+.mg-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease;
+    border-radius: 12px;
+}
+
+.mg-card.is-flipped .mg-card-inner {
+    transform: rotateY(180deg);
+}
+
+.mg-card-front,
+.mg-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    backface-visibility: hidden;
-    border-radius: 8px;
-    font-size: 2rem;
-    color: #fff;
-    overflow: hidden;
+    font-size: 36px;
 }
 
-/* Back (Hidden) Face */
-.mg-back {
-    background-color: #0055ff;
-    /* Blue for hidden side */
+.mg-card-front {
+    background: #f2f2f2;
+}
+
+.mg-card-back {
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
     transform: rotateY(180deg);
-}
-
-/* Front (Visible) Face */
-.mg-front {
-    background-color: #fff;
-    /* White for revealed content */
-    color: #333;
-    font-size: 3rem;
-    transform: rotateY(0deg);
-}
-
-/* Card Image Sizing */
-.mg-front img {
-    max-width: 80%;
-    max-height: 80%;
-    object-fit: contain;
-}
-
-/* Card Flip State */
-.mg-card.is-flipped {
-    transform: rotateY(180deg);
-    cursor: default;
-}
-
-/* Matched Card State (remains flipped and less interactive) */
-.mg-card.is-matched {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    cursor: default;
-    opacity: 0.9;
-}
-
-/* Disable board interactions */
-.mg-board.is-disabled .mg-card {
-    pointer-events: none;
-}
-
-/* Difficulty Selector consistency */
-#mgDifficulty {
-    width: auto;
-}
-
-/* Best Result Styling */
-.mg-best {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #6c757d;
-}
-
-/* Mobile adjustments (make cards slightly smaller/tighter) */
-@media (max-width: 576px) {
-    .mg-board.hard {
-        gap: 8px;
-    }
-
-    .mg-card {
-        padding-bottom: 100%;
-        font-size: 2rem;
-    }
-}
-
-
-/* Update your custom.css or main.css */
-
-.mg-front {
-    background-color: #fff;
-    color: #333;
-    /* Increase font size significantly if 3rem isn't enough */
-    font-size: 4rem;
-    /* Try increasing this to 4rem or 5rem */
-    /* Ensure no padding or alignment issues hide the icon */
-    transform: rotateY(0deg);
-}
-
-
-
-/* Custom CSS or main.css */
-
-/* 1. Ensure the card face itself is styled correctly */
-.mg-face.mg-front {
-    /* Use a dark color for the icon/text content */
-    color: #333 !important;
-    /* Make the font large enough to be clearly visible */
-    font-size: 5rem !important;
-    /* Ensure white background */
-    background-color: #fff !important;
-
-    /* Center the content */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* 2. Explicitly target the Bootstrap Icon element */
-.mg-front i.bi {
-    /* Inherit the dark color */
-    color: inherit !important;
-}
-
-/* 3. Also ensure the back face icon is visible (as it seems faint in the screenshots) */
-.mg-face.mg-back {
-    color: #fff !important;
-    /* White icon on blue background */
-    font-size: 4rem !important;
 }
